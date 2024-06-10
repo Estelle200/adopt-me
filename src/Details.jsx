@@ -25,20 +25,28 @@ const Details = () => {
   const pet = results.data.pets[0];
 
   return (
-    <div className="details">
+    <div className="shadow-custom mx-auto mb-[25px] w-[1100px] rounded-[6px] bg-[#faeff0] p-[15px]">
       <Carousel images={pet.images} />
       <div>
-        <h1>{pet.name}</h1>
-        <h2>
+        <h1 className="my-[5px] mx-0 text-center text-[60px] text-[#333]">
+          {pet.name}
+        </h1>
+        <h2 className="my-[5px] mx-0 mb-[20px] text-center">
           {pet.animal} - {pet.breed} - {pet.city}, {pet.state}
-          <button onClick={() => setShowModal(true)}>Adopt {pet.name}</button>
-          <p>{pet.description}</p>
+          <button
+            className="mx-auto block cursor-pointer rounded-md border border-[#333] bg-[#ad343e] px-6 py-1 text-lg text-white"
+            onClick={() => setShowModal(true)}
+          >
+            Adopt {pet.name}
+          </button>
+          <p className="px-[15px] py-0 leading-[1.5]">{pet.description}</p>
           {showModal ? (
             <Modal>
-              <div>
+              <div className="max-w-[500px] rounded-[30px] bg-[#faeff0] p-[15px] text-center">
                 <h1>Would you like to adopt {pet.name}?</h1>
-                <div className="buttons">
+                <div className="mx-auto block cursor-pointer rounded-md border border-[#333] bg-[#ad343e] px-6 py-1 text-lg text-white">
                   <button
+                    className="mr-4 inline-block"
                     onClick={() => {
                       setAdoptedPet(pet);
                       navigate("/");
@@ -46,7 +54,12 @@ const Details = () => {
                   >
                     Yes
                   </button>
-                  <button onClick={() => setShowModal(false)}>No</button>
+                  <button
+                    className="mr-4 inline-block"
+                    onClick={() => setShowModal(false)}
+                  >
+                    No
+                  </button>
                 </div>
               </div>
             </Modal>

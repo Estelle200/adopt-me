@@ -6,6 +6,9 @@
   body {
     font-family: "Comic Sans MS"
   }
+  #modal:empty {
+    display: none;
+  }
 }
 
 @layer components {
@@ -18,4 +21,5 @@
   .grayed-out-disabled {
     @apply disabled:opacity-50;
   }
+  
 }
